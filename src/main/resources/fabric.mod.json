@@ -13,8 +13,9 @@
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/cuties-simple-zoom/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
+      "modmenu": [ "thatcuteone.cutiessimsplezoom.ModMenu" ],
 		"client": [
 			{
 				"value": "thatcuteone.cutiessimsplezoom.CutiesSimpleZoomModClient",
@@ -31,7 +32,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21.8",
+		"minecraft": ">=1.21.7",
 		"java": ">=21",
 		"fabric-api": "*",
 		"fabric-language-kotlin": "*",

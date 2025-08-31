@@ -1,0 +1,14 @@
+{
+    "title.cuties-simple-zoom.config": "Cuties Simple Zoom Config",
+    "category.cuties-simple-zoom.general":"Cuties Simple Zoom Config",
+    "option.cuties-simple-zoom.defaultZoomLevel": "Initial Zoom Level",
+    "option.cuties-simple-zoom.defaultZoomLevel.description": "The Zoom Level when pressing the Hotkey(value between 0.0-1.0)",
+    "option.cuties-simple-zoom.zoomInStep": "Scroll Zoom In Step",
+    "option.cuties-simple-zoom.zoomInStep.description": "",
+    "option.cuties-simple-zoom.zoomOutStep":"Scroll Zoom Out Step",
+    "option.cuties-simple-zoom.zoomOutStep.description": "",
+    "option.cuties-simple-zoom.sensitivityScaling": "Sensitivity Scaling",
+    "option.cuties-simple-zoom.sensitivityScaling.description" : "",
+    "option.cuties-simple-zoom.sensitivityScalingFactor":"Sensitivity Scaling Factor",
+    "option.cuties-simple-zoom.sensitivityScalingFactor.description": ""
+}
