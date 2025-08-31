@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "thatcuteone.cutiessimsplezoom.mixin.client",
+	"package": "de.thatcuteone.cutiessimsplezoom.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
       "GameRendererMixin",

@@ -1,4 +1,5 @@
-package thatcuteone.cutiessimsplezoom
+package de.thatcuteone.cutiessimsplezoom
+
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import java.io.File

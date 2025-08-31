@@ -1,13 +1,14 @@
-package thatcuteone.cutiessimsplezoom
+package de.thatcuteone.cutiessimsplezoom
 
 import me.shedaniel.clothconfig2.api.ConfigBuilder
 import me.shedaniel.clothconfig2.api.ConfigCategory
 import net.minecraft.client.gui.screen.Screen
+
 import net.minecraft.text.Text
 
 
 object ClothConfig {
-    fun buildConfigScreen():Screen {
+    fun buildConfigScreen(): Screen {
         val builder: ConfigBuilder = ConfigBuilder.create().setParentScreen(Minecraft.currentScreen).setTitle(Text.translatable("title.cuties-simple-zoom.config"))
         val general: ConfigCategory = builder.getOrCreateCategory(Text.translatable("category.cuties-simple-zoom.general"))
         val entryBuilder = builder.entryBuilder()

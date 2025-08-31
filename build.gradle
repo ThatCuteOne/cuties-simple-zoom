@@ -22,17 +22,6 @@ repositories {
 	// for more information about repositories.
 }
 
-loom {
-	splitEnvironmentSourceSets()
-
-	mods {
-		"cuties-simple-zoom" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
-		}
-	}
-
-}
 
 dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0"	// To change the versions see the gradle.properties file
