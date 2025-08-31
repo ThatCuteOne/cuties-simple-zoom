@@ -1,0 +1,43 @@
+{
+	"schemaVersion": 1,
+	"id": "cuties-simple-zoom",
+	"version": "${version}",
+	"name": "Cutie's Simple Zoom mod",
+	"description": "A Simple Zoom mod for Cute People",
+	"authors": [
+		"ThatCuteOne"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/cuties-simple-zoom/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			{
+				"value": "thatcuteone.cutiessimsplezoom.CutiesSimpleZoomModClient",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"cuties-simple-zoom.mixins.json",
+		{
+			"config": "cuties-simple-zoom.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.8",
+		"java": ">=21",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*",
+        "fabric-key-binding-api-v1": "*"
+	},
+	"suggests": {
+
+	}
+}
