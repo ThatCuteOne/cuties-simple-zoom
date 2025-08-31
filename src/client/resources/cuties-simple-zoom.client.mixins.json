@@ -3,7 +3,8 @@
 	"package": "thatcuteone.cutiessimsplezoom.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-      "GameRendererMixin"
+      "GameRendererMixin",
+      "MouseMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
