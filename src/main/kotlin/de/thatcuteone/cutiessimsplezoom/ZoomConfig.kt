@@ -14,6 +14,8 @@ class ZoomConfig {
     var zoomOutStep : Double = 0.9
     var sensitivityScaling: Boolean = true
     var sensitivityScalingFactor: Double = 1.0
+    var smoothZoom: Boolean = true
+    val zoomSpeed = 10f
      fun save() {
          val json = Json.encodeToString(this)
          configFile.writeText(json)
