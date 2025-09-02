@@ -16,11 +16,17 @@ object ClothConfig {
         val general: ConfigCategory = builder.getOrCreateCategory(Text.translatable("category.cuties-simple-zoom.general"))
         val entryBuilder = builder.entryBuilder()
         general.addEntry(
-            entryBuilder.startFloatField(Text.translatable("option.cuties-simple-zoom.defaultZoomLevel"), config.defaultZoomLevel)
-                .setDefaultValue(30f)
+            entryBuilder.startIntSlider(Text.translatable("option.cuties-simple-zoom.defaultZoomLevel"), config.defaultZoomLevel,1,100)
                 .setTooltip(Text.translatable("option.cuties-simple-zoom.defaultZoomLevel.description"))
                 .setSaveConsumer { newValue ->
-                    config.defaultZoomLevel = newValue.coerceIn(1.0f,110.0f)
+                    config.defaultZoomLevel = newValue
+                }
+                .build())
+        general.addEntry(
+            entryBuilder.startIntSlider(Text.translatable("option.cuties-simple-zoom.zoomSpeed"), config.zoomSpeed,1,100)
+                .setTooltip(Text.translatable("option.cuties-simple-zoom.zoomSpeed.description"))
+                .setSaveConsumer { newValue ->
+                    config.zoomSpeed = newValue
                 }
                 .build())
         general.addEntry(

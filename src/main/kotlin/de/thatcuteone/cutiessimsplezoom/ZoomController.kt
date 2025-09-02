@@ -1,27 +1,26 @@
 package de.thatcuteone.cutiessimsplezoom
 
 import net.minecraft.client.MinecraftClient
-import kotlin.math.abs
-
 
 class ZoomController {
     private var minecraftClient: MinecraftClient = MinecraftClient.getInstance()
     var isZooming: Boolean = false
     private var defaultSensitivity: Double = 0.0
     private var sensitivitySaved: Boolean = false
-    private var fov: Float = config.defaultZoomLevel
-    private var targetFov = config.defaultZoomLevel
+    private var targetMultiplier: Float = 1.0f
+    private var currentMultiplier: Float = 1.0f
+    private var previousMultiplier: Float = 1.0f
+
+    fun tickInterpolate(){
+        previousMultiplier = currentMultiplier
+        currentMultiplier += (targetMultiplier - currentMultiplier) * (config.zoomSpeed.toFloat() /100)
+    }
 
     fun scrollDown(){
-        this.targetFov = (targetFov * config.zoomOutStep.toFloat()).coerceIn(1.0f,110.0f)
+        if (isZooming)  targetMultiplier =(targetMultiplier* config.zoomOutStep.toFloat()).coerceIn(0.02f,1.0f)
     }
     fun scrollUp(){
-        this.targetFov = (targetFov * config.zoomInStep.toFloat()).coerceIn(1.0f,110.0f)
-    }
-    private fun applyEasing():Float{
-        val result = fov + (targetFov - fov) * (config.zoomSpeed / 100f)
-        fov = result
-        return result
+        if (isZooming)  targetMultiplier = (targetMultiplier * config.zoomInStep.toFloat()).coerceIn(0.02f,1.0f)
     }
 
     private fun setSensitivity(){
@@ -29,8 +28,8 @@ class ZoomController {
             this.defaultSensitivity = minecraftClient.options.mouseSensitivity.value
             this.sensitivitySaved = true
         }
-        val zoomPercent:Float = (this.fov * minecraftClient.options.fov.value) / 10000
-        minecraftClient.options.mouseSensitivity.value = (defaultSensitivity * zoomPercent) * config.sensitivityScalingFactor.coerceIn(0.0,1.0)
+        minecraftClient.renderTime
+        minecraftClient.options.mouseSensitivity.value = (defaultSensitivity * (currentMultiplier / config.sensitivityScalingFactor))
     }
 
     private fun resetSensitivity() {
@@ -39,20 +38,19 @@ class ZoomController {
             sensitivitySaved = false
         }
     }
-    fun zoom(currentFov:Float):Float{
+    fun zoom(currentFov:Float,tickProgress: Float):Float{
         if (!zoomKey.isPressed) {
             if (isZooming){
                 resetSensitivity()
-                this.fov = config.defaultZoomLevel
-                targetFov = config.defaultZoomLevel
+                targetMultiplier = 1.0f
+                isZooming = false
             }
-            isZooming = false
-            return currentFov
         }
         else{
-            isZooming = true
             if (config.sensitivityScaling) setSensitivity()
-            return applyEasing().coerceIn(1.0f,currentFov)
+            if (!isZooming) targetMultiplier = config.defaultZoomLevel.toFloat() / 100
+            isZooming = true
         }
-    }
+        return (currentFov * (previousMultiplier + (currentMultiplier - previousMultiplier) * (tickProgress)))
+        }
 }

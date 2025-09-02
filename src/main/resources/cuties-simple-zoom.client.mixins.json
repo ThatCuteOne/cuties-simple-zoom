@@ -1,12 +1,12 @@
 {
-	"required": true,
-	"package": "de.thatcuteone.cutiessimsplezoom.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"client": [
-      "GameRendererMixin",
-      "MouseMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "de.thatcuteone.cutiessimsplezoom.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "GameRendererMixin",
+    "MouseMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

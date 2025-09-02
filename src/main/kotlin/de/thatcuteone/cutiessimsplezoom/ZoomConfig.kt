@@ -9,13 +9,12 @@ private val configFile: File = File("config/cutiessimplezoom.json")
 
 @Serializable
 class ZoomConfig {
-    var defaultZoomLevel: Float = 30.0f
+    var defaultZoomLevel: Int = 50
     var zoomInStep : Double = 1.1
     var zoomOutStep : Double = 0.9
     var sensitivityScaling: Boolean = true
     var sensitivityScalingFactor: Double = 1.0
-    var smoothZoom: Boolean = true
-    val zoomSpeed = 10f
+    var zoomSpeed: Int = 50
      fun save() {
          val json = Json.encodeToString(this)
          configFile.writeText(json)
