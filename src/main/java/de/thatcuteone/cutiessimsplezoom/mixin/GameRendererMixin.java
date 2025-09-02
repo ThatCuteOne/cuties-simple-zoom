@@ -13,6 +13,6 @@ public abstract class GameRendererMixin {
 	@Inject(at = @At("RETURN"), method = "getFov",cancellable = true)
     private void onGetFov(CallbackInfoReturnable<Float> r){
         float originalFov = r.getReturnValue();
-        r.setReturnValue(CutiesSimpleZoomModClientKt.changeFov(originalFov));
+        r.setReturnValue(CutiesSimpleZoomModClientKt.getFov(originalFov));
     };
 }

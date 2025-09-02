@@ -9,7 +9,7 @@ private val configFile: File = File("config/cutiessimplezoom.json")
 
 @Serializable
 class ZoomConfig {
-    var defaultZoomLevel: Double = 0.5
+    var defaultZoomLevel: Float = 30.0f
     var zoomInStep : Double = 1.1
     var zoomOutStep : Double = 0.9
     var sensitivityScaling: Boolean = true

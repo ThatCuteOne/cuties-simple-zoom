@@ -2,22 +2,25 @@ package de.thatcuteone.cutiessimsplezoom
 
 import me.shedaniel.clothconfig2.api.ConfigBuilder
 import me.shedaniel.clothconfig2.api.ConfigCategory
+import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.Screen
 
 import net.minecraft.text.Text
 
 
+private var minecraftClient: MinecraftClient = MinecraftClient.getInstance()
+
 object ClothConfig {
     fun buildConfigScreen(): Screen {
-        val builder: ConfigBuilder = ConfigBuilder.create().setParentScreen(Minecraft.currentScreen).setTitle(Text.translatable("title.cuties-simple-zoom.config"))
+        val builder: ConfigBuilder = ConfigBuilder.create().setParentScreen(minecraftClient.currentScreen).setTitle(Text.translatable("title.cuties-simple-zoom.config"))
         val general: ConfigCategory = builder.getOrCreateCategory(Text.translatable("category.cuties-simple-zoom.general"))
         val entryBuilder = builder.entryBuilder()
         general.addEntry(
-            entryBuilder.startDoubleField(Text.translatable("option.cuties-simple-zoom.defaultZoomLevel"), config.defaultZoomLevel)
-                .setDefaultValue(0.5)
+            entryBuilder.startFloatField(Text.translatable("option.cuties-simple-zoom.defaultZoomLevel"), config.defaultZoomLevel)
+                .setDefaultValue(30f)
                 .setTooltip(Text.translatable("option.cuties-simple-zoom.defaultZoomLevel.description"))
                 .setSaveConsumer { newValue ->
-                    config.defaultZoomLevel = newValue.coerceIn(0.0,1.0)
+                    config.defaultZoomLevel = newValue.coerceIn(1.0f,110.0f)
                 }
                 .build())
         general.addEntry(
