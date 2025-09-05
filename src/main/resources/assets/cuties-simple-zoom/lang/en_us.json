@@ -1,8 +1,8 @@
 {
     "title.cuties-simple-zoom.config": "Cuties Simple Zoom Config",
     "category.cuties-simple-zoom.general":"Cuties Simple Zoom Config",
-    "option.cuties-simple-zoom.defaultZoomLevel": "Initial Zoom FoV",
-    "option.cuties-simple-zoom.defaultZoomLevel.description": "The Zoom FoV when pressing the Hotkey",
+    "option.cuties-simple-zoom.defaultZoomLevel": "Initial Zoom FOV",
+    "option.cuties-simple-zoom.defaultZoomLevel.description": "The Zoom FOV when pressing the Hotkey",
     "option.cuties-simple-zoom.zoomInStep": "Scroll Zoom In Step",
     "option.cuties-simple-zoom.zoomInStep.description": "",
     "option.cuties-simple-zoom.zoomOutStep":"Scroll Zoom Out Step",
@@ -10,5 +10,7 @@
     "option.cuties-simple-zoom.sensitivityScaling": "Sensitivity Scaling",
     "option.cuties-simple-zoom.sensitivityScaling.description" : "",
     "option.cuties-simple-zoom.sensitivityScalingFactor":"Sensitivity Scaling Factor",
-    "option.cuties-simple-zoom.sensitivityScalingFactor.description": ""
+    "option.cuties-simple-zoom.sensitivityScalingFactor.description": "",
+    "option.cuties-simple-zoom.zoomSpeed": "Zoom Speed",
+    "option.cuties-simple-zoom.zoomSpeed.description": "The speed of the Zoom animation. 26 is instant"
 }
