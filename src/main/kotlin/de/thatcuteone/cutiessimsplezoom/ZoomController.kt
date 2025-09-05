@@ -1,7 +1,6 @@
 package de.thatcuteone.cutiessimsplezoom
 
 import net.minecraft.client.MinecraftClient
-import org.joml.Math.lerp
 import kotlin.math.exp
 
 class ZoomController {
