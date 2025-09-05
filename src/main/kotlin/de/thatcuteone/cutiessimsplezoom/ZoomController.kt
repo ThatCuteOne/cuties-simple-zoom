@@ -1,6 +1,7 @@
 package de.thatcuteone.cutiessimsplezoom
 
 import net.minecraft.client.MinecraftClient
+import kotlin.math.exp
 
 class ZoomController {
     private var minecraftClient: MinecraftClient = MinecraftClient.getInstance()
@@ -9,11 +10,12 @@ class ZoomController {
     private var sensitivitySaved: Boolean = false
     private var targetMultiplier: Float = 1.0f
     private var currentMultiplier: Float = 1.0f
-    private var previousMultiplier: Float = 1.0f
+    private var ticks: Int = 0
+
+    private var lastcalltime: Float = 0f
 
     fun tickInterpolate(){
-        previousMultiplier = currentMultiplier
-        currentMultiplier += (targetMultiplier - currentMultiplier) * (config.zoomSpeed.toFloat() /100)
+        ticks += 1
     }
 
     fun scrollDown(){
@@ -28,7 +30,6 @@ class ZoomController {
             this.defaultSensitivity = minecraftClient.options.mouseSensitivity.value
             this.sensitivitySaved = true
         }
-        minecraftClient.renderTime
         minecraftClient.options.mouseSensitivity.value = (defaultSensitivity * (currentMultiplier / config.sensitivityScalingFactor))
     }
 
@@ -51,6 +52,15 @@ class ZoomController {
             if (!isZooming) targetMultiplier = config.defaultZoomLevel.toFloat() / 100
             isZooming = true
         }
-        return (currentFov * (previousMultiplier + (currentMultiplier - previousMultiplier) * (tickProgress)))
+        val tickTime: Float = tickProgress + ticks
+        val frameTime: Float = tickTime /  20.0f
+        val diff: Float = lastcalltime - frameTime
+        lastcalltime = frameTime
+        if (config.zoomSpeed == 26){
+            currentMultiplier = targetMultiplier
+            return currentFov * currentMultiplier
+        }
+        currentMultiplier = targetMultiplier + (currentMultiplier - targetMultiplier) * exp((config.zoomSpeed) * diff)
+        return currentFov * currentMultiplier
         }
 }

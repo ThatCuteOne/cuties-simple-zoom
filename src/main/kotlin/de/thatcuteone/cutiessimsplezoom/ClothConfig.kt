@@ -23,7 +23,8 @@ object ClothConfig {
                 }
                 .build())
         general.addEntry(
-            entryBuilder.startIntSlider(Text.translatable("option.cuties-simple-zoom.zoomSpeed"), config.zoomSpeed,1,100)
+            entryBuilder.startIntSlider(Text.translatable("option.cuties-simple-zoom.zoomSpeed"), config.zoomSpeed,1,26)
+                .setDefaultValue(25)
                 .setTooltip(Text.translatable("option.cuties-simple-zoom.zoomSpeed.description"))
                 .setSaveConsumer { newValue ->
                     config.zoomSpeed = newValue
