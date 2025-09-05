@@ -17,8 +17,6 @@ class ZoomController {
 
     fun tickInterpolate(){
         ticks += 1
-        previousMultiplier = currentMultiplier
-        currentMultiplier += (targetMultiplier - currentMultiplier) * (config.zoomSpeed.toFloat() /100)
     }
 
     fun scrollDown(){
@@ -60,7 +58,8 @@ class ZoomController {
         val diff: Float = lastcalltime - frameTime
         //println("progress: $tickProgress \n ticks:$ticks \n frametime: $frameTime \n Diff: $diff")
         lastcalltime = frameTime
-
-        return (currentFov * (previousMultiplier + (currentMultiplier - previousMultiplier) * exp((config.zoomSpeed) * diff)))
+        currentMultiplier += (targetMultiplier - currentMultiplier) * exp((config.zoomSpeed) * diff)
+        previousMultiplier = currentMultiplier
+        return (currentFov * currentMultiplier)
         }
 }

@@ -23,6 +23,7 @@ object CutiesSimpleZoomModClient : ClientModInitializer {
 
 fun getFov(currentFov:Float,tickProgress:Float):Float{
     val a = Zoom.zoom(currentFov,tickProgress)
+    println(a)
     return a
 }
 fun onMouseScroll(amount:Double) {
