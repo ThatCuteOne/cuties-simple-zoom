@@ -53,11 +53,15 @@ class ZoomController {
             if (!isZooming) targetMultiplier = config.defaultZoomLevel.toFloat() / 100
             isZooming = true
         }
-        val ticktime: Float = tickProgress + ticks
-        val frameTime: Float = ticktime /  20.0f
+        val tickTime: Float = tickProgress + ticks
+        val frameTime: Float = tickTime /  20.0f
         val diff: Float = lastcalltime - frameTime
         lastcalltime = frameTime
-        currentMultiplier = lerp(currentMultiplier,targetMultiplier,exp((config.zoomSpeed) * diff))
+        if (config.zoomSpeed == 26){
+            currentMultiplier = targetMultiplier
+            return currentFov * currentMultiplier
+        }
+        currentMultiplier = targetMultiplier + (currentMultiplier - targetMultiplier) * exp((config.zoomSpeed) * diff)
         return currentFov * currentMultiplier
         }
 }
