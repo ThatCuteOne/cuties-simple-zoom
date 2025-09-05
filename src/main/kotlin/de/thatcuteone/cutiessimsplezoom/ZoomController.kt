@@ -1,6 +1,7 @@
 package de.thatcuteone.cutiessimsplezoom
 
 import net.minecraft.client.MinecraftClient
+import org.joml.Math.lerp
 import kotlin.math.exp
 
 class ZoomController {
@@ -10,7 +11,6 @@ class ZoomController {
     private var sensitivitySaved: Boolean = false
     private var targetMultiplier: Float = 1.0f
     private var currentMultiplier: Float = 1.0f
-    private var previousMultiplier: Float = 1.0f
     private var ticks: Int = 0
 
     private var lastcalltime: Float = 0f
@@ -54,12 +54,10 @@ class ZoomController {
             isZooming = true
         }
         val ticktime: Float = tickProgress + ticks
-        val frameTime: Float = ticktime * (1000.0f / 20.0f)
+        val frameTime: Float = ticktime /  20.0f
         val diff: Float = lastcalltime - frameTime
-        //println("progress: $tickProgress \n ticks:$ticks \n frametime: $frameTime \n Diff: $diff")
         lastcalltime = frameTime
-        currentMultiplier += (targetMultiplier - currentMultiplier) * exp((config.zoomSpeed) * diff)
-        previousMultiplier = currentMultiplier
-        return (currentFov * currentMultiplier)
+        currentMultiplier = lerp(currentMultiplier,targetMultiplier,exp((config.zoomSpeed) * diff))
+        return currentFov * currentMultiplier
         }
 }
