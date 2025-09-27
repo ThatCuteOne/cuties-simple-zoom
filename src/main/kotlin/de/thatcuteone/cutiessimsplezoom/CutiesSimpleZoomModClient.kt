@@ -7,6 +7,7 @@ import net.minecraft.client.util.InputUtil
 import org.lwjgl.glfw.GLFW
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.minecraft.client.MinecraftClient
+import net.minecraft.util.Identifier
 
 lateinit var Zoom: ZoomController
 
@@ -37,6 +38,6 @@ var zoomKey: KeyBinding = (
             "key.cutiessimplezoom.zoom",
             InputUtil.Type.KEYSYM,
             GLFW.GLFW_KEY_C,
-            "key.category.cutiessimplezoom.zoom"
+            KeyBinding.Category.create(Identifier.of("key.category.cutiessimplezoom.zoom"))
     )
 )
