@@ -30,7 +30,7 @@ class ZoomController {
             this.defaultSensitivity = minecraftClient.options.mouseSensitivity.value
             this.sensitivitySaved = true
         }
-        minecraftClient.options.mouseSensitivity.value = (defaultSensitivity * (currentMultiplier / config.sensitivityScalingFactor))
+        minecraftClient.options.mouseSensitivity.value = (defaultSensitivity * (currentMultiplier / config.sensitivityScalingFactor)).coerceIn(0.0, this.defaultSensitivity)
     }
 
     private fun resetSensitivity() {

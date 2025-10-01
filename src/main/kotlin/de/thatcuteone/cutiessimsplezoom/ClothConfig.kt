@@ -59,7 +59,7 @@ object ClothConfig {
                 .setDefaultValue(1.0)
                 .setTooltip(Text.translatable("option.cuties-simple-zoom.sensitivityScalingFactor.description"))
                 .setSaveConsumer { newValue ->
-                    config.sensitivityScalingFactor = newValue
+                    config.sensitivityScalingFactor = newValue.coerceAtLeast(0.01)
                 }
                 .build())
         builder.setSavingRunnable{
