@@ -2,12 +2,12 @@ package de.thatcuteone.cutiessimsplezoom
 
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
-import net.minecraft.client.option.KeyBinding
-import net.minecraft.client.util.InputUtil
+import net.minecraft.client.KeyMapping
+import com.mojang.blaze3d.platform.InputConstants
 import org.lwjgl.glfw.GLFW
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
-import net.minecraft.client.MinecraftClient
-import net.minecraft.util.Identifier
+import net.minecraft.client.Minecraft
+import net.minecraft.resources.Identifier
 
 lateinit var Zoom: ZoomController
 
@@ -17,7 +17,7 @@ object CutiesSimpleZoomModClient : ClientModInitializer {
         KeyBindingHelper.registerKeyBinding(zoomKey)
         Zoom = ZoomController()
     }
-    fun onTick(Minecraft: MinecraftClient){
+    fun onTick(Minecraft: Minecraft){
         Zoom.tickInterpolate()
     }
 }
@@ -33,11 +33,11 @@ fun onMouseScroll(amount:Double) {
 
 
 
-var zoomKey: KeyBinding = (
-        KeyBinding(
+var zoomKey: KeyMapping = (
+        KeyMapping(
             "key.cutiessimplezoom.zoom",
-            InputUtil.Type.KEYSYM,
+            InputConstants.Type.KEYSYM,
             GLFW.GLFW_KEY_C,
-            KeyBinding.Category.create(Identifier.of("key.category.cutiessimplezoom.zoom"))
+            KeyMapping.Category.register(Identifier.parse("key.category.cutiessimplezoom.zoom"))
     )
 )

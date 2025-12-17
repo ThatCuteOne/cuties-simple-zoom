@@ -1,10 +1,10 @@
 package de.thatcuteone.cutiessimsplezoom
 
-import net.minecraft.client.MinecraftClient
+import net.minecraft.client.Minecraft
 import kotlin.math.exp
 
 class ZoomController {
-    private var minecraftClient: MinecraftClient = MinecraftClient.getInstance()
+    private var minecraftClient: Minecraft = Minecraft.getInstance()
     var isZooming: Boolean = false
     private var defaultSensitivity: Double = 0.0
     private var sensitivitySaved: Boolean = false
@@ -27,20 +27,20 @@ class ZoomController {
 
     private fun setSensitivity(){
         if(!sensitivitySaved){
-            this.defaultSensitivity = minecraftClient.options.mouseSensitivity.value
+            this.defaultSensitivity = minecraftClient.options.sensitivity().get()
             this.sensitivitySaved = true
         }
-        minecraftClient.options.mouseSensitivity.value = (defaultSensitivity * (currentMultiplier / config.sensitivityScalingFactor)).coerceIn(0.0, this.defaultSensitivity)
+        minecraftClient.options.sensitivity().set((defaultSensitivity * (currentMultiplier / config.sensitivityScalingFactor)).coerceIn(0.0, this.defaultSensitivity))
     }
 
     private fun resetSensitivity() {
         if (sensitivitySaved) {
-            minecraftClient.options.mouseSensitivity.value = defaultSensitivity
+            minecraftClient.options.sensitivity().set(defaultSensitivity)
             sensitivitySaved = false
         }
     }
     fun zoom(currentFov:Float,tickProgress: Float):Float{
-        if (!zoomKey.isPressed) {
+        if (!zoomKey.isDown) {
             if (isZooming){
                 resetSensitivity()
                 targetMultiplier = 1.0f
@@ -56,6 +56,7 @@ class ZoomController {
         val frameTime: Float = tickTime /  20.0f
         val diff: Float = lastcalltime - frameTime
         lastcalltime = frameTime
+        // is instant check
         if (config.zoomSpeed == 26){
             currentMultiplier = targetMultiplier
             return currentFov * currentMultiplier
