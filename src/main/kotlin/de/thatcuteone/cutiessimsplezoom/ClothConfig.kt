@@ -21,10 +21,7 @@ object ClothConfig {
                     config.defaultZoomLevel = newValue
                 }
                 .setTextGetter { value ->
-                        if (value >= 26){
-                            Component.translatable("option.cuties-simple-zoom.instantZoomLevel");
-                        }
-                    Component.literal(value.toString());
+                    Component.literal(value.toString())
                 }
                 .build())
         general.addEntry(
@@ -33,6 +30,11 @@ object ClothConfig {
                 .setTooltip(Component.translatable("option.cuties-simple-zoom.zoomSpeed.description"))
                 .setSaveConsumer { newValue ->
                     config.zoomSpeed = newValue
+                }.setTextGetter { value ->
+                    if (value >= 26){
+                        Component.translatable("option.cuties-simple-zoom.instantZoomLevel")
+                    } else {Component.literal(value.toString());}
+
                 }
                 .build())
         general.addEntry(

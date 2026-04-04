@@ -33,10 +33,9 @@
 	"depends": {
 		"fabricloader": ">=0.17.2",
 		"minecraft": ">=1.21.7",
-		"java": ">=21",
+		"java": ">=25",
 		"fabric-api": "*",
-		"fabric-language-kotlin": "*",
-        "fabric-key-binding-api-v1": "*"
+		"fabric-language-kotlin": "*"
 	},
 	"suggests": {
         "modmenu": "*",

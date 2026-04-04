@@ -1,7 +1,7 @@
 package de.thatcuteone.cutiessimsplezoom
 
 import net.fabricmc.api.ClientModInitializer
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper
 import net.minecraft.client.KeyMapping
 import com.mojang.blaze3d.platform.InputConstants
 import org.lwjgl.glfw.GLFW
@@ -12,9 +12,9 @@ import net.minecraft.resources.Identifier
 lateinit var Zoom: ZoomController
 
 object CutiesSimpleZoomModClient : ClientModInitializer {
-	override fun onInitializeClient() {;
+	override fun onInitializeClient() {
         ClientTickEvents.END_CLIENT_TICK.register(this::onTick)
-        KeyBindingHelper.registerKeyBinding(zoomKey)
+        KeyMappingHelper.registerKeyMapping(zoomKey)
         Zoom = ZoomController()
     }
     fun onTick(Minecraft: Minecraft){
@@ -29,7 +29,7 @@ fun getFov(currentFov:Float,tickProgress:Float):Float{
 fun onMouseScroll(amount:Double) {
     if(amount < 0) Zoom.scrollUp()
     else if (amount > 0) Zoom.scrollDown()
-};
+}
 
 
 
