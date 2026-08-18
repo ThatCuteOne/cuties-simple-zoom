@@ -54,3 +54,26 @@ jobs:
           version-type: release
           loaders: fabric quilt
           game-version-filter: releases
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          profile: minimal
+      -  name: Update Modman Manifest
+         id: modman-update-manifest
+         run: |
+           git clone --branch v1.9.0 --depth 1 https://codeberg.org/rubl/modman.git
+           cd modman
+           cargo build --release
+           chmod +x ./target/release/modman
+           mv ./target/release/modman ~/.local/bin/
+           
+           cd ..
+           rm -rf modman
+           modman manifest release $(git describe --tags) 26.2
+           
+           git config user.name "github-actions[bot]"
+           git config user.email "github-actions[bot]@users.noreply.github.com"
+           git add .
+           git commit -m "Update modman manifest for release $(git describe --tags)"
