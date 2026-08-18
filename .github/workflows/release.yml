@@ -73,6 +73,7 @@ jobs:
            
            cd ..
            rm -rf modman
+           git pull origin master
            git switch master
            modman manifest release $(git describe --tags) 26.2
            
