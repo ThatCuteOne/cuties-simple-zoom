@@ -1,1 +1,1 @@
-remove kotlin(it sucks ass)
+update to 26.2

@@ -20,11 +20,11 @@ public class ConfigScreenBuilder {
     private static final ZoomConfig defaultConfig = new ZoomConfig();
 
 
-    private final ConfigBuilder configBuilder = ConfigBuilder.create().setParentScreen(minecraftClient.screen).setTitle(Component.translatable("title.cuties-simple-zoom.config"));
+    private final ConfigBuilder configBuilder = ConfigBuilder.create().setParentScreen(minecraftClient.gui.screen()).setTitle(Component.translatable("title.cuties-simple-zoom.config"));
     private final ConfigCategory generalCategory = configBuilder.getOrCreateCategory(Component.translatable("category.cuties-simple-zoom.general"));
 
     public Screen build() {
-        configBuilder.setParentScreen(minecraftClient.screen);
+        configBuilder.setParentScreen(minecraftClient.gui.screen());
         generalCategory.addEntry(
                 getDefaultZoomEntry()
         );
