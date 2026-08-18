@@ -5,7 +5,9 @@
       "timestap": "2026-08-18T11:57:17.277273837Z",
       "game_version": "26.2",
       "version_name": "v1.0.2",
-      "depends_on": []
+      "depends_on": [
+        "9s6osm5g"
+      ]
     }
   ]
 }
