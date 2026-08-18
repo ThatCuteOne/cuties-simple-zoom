@@ -1,9 +1,9 @@
 {
   "required": true,
   "package": "de.thatcuteone.cutiessimsplezoom.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "client": [
-    "GameRendererMixin",
+    "CameraMixin",
     "MouseMixin"
   ],
   "injectors": {

@@ -15,28 +15,24 @@
 	"icon": "assets/cuties-simple-zoom/icon.png",
 	"environment": "client",
 	"entrypoints": {
-      "modmenu": [ "de.thatcuteone.cutiessimsplezoom.ModMenu" ],
+      "modmenu": [
+		  "de.thatcuteone.cutiessimsplezoom.config.ModMenuImpl"
+	  ],
 		"client": [
-			{
-				"value": "de.thatcuteone.cutiessimsplezoom.CutiesSimpleZoomModClient",
-				"adapter": "kotlin"
-			}
+				"de.thatcuteone.cutiessimsplezoom.CutiesSimpleZoomClient"
 		]
 	},
 	"mixins": [
-		"cuties-simple-zoom.mixins.json",
 		{
 			"config": "cuties-simple-zoom.client.mixins.json",
 			"environment": "client"
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.17.2",
-		"minecraft": ">=1.21.7",
-		"java": ">=21",
-		"fabric-api": "*",
-		"fabric-language-kotlin": "*",
-        "fabric-key-binding-api-v1": "*"
+		"fabricloader": ">=0.19.3",
+		"minecraft": ">=26.2",
+		"java": ">=25",
+		"fabric-api": "*"
 	},
 	"suggests": {
         "modmenu": "*",

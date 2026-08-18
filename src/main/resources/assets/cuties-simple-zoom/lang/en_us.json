@@ -12,5 +12,6 @@
     "option.cuties-simple-zoom.sensitivityScalingFactor":"Sensitivity Scaling Factor",
     "option.cuties-simple-zoom.sensitivityScalingFactor.description": "",
     "option.cuties-simple-zoom.zoomSpeed": "Zoom Speed",
-    "option.cuties-simple-zoom.zoomSpeed.description": "The speed of the Zoom animation. 26 is instant"
+    "option.cuties-simple-zoom.zoomSpeed.description": "The speed of the Zoom animation.",
+    "option.cuties-simple-zoom.instantZoomLevel" : "Instant"
 }
