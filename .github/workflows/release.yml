@@ -67,7 +67,9 @@ jobs:
            cd modman
            cargo build --release
            chmod +x ./target/release/modman
+           mkdir -p ~/.local/bin
            mv ./target/release/modman ~/.local/bin/
+           export PATH="$HOME/.local/bin:$PATH"
            
            cd ..
            rm -rf modman
