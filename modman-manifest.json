@@ -1,10 +1,22 @@
 {
-  "format": 1,
+  "format": 2,
   "versions": [
     {
-      "timestap": "2026-08-18T11:57:17.277273837Z",
-      "game_version": "26.2",
+      "timestamp": "2026-08-18T11:57:17.277273837Z",
+      "game_versions": [
+        "26.2"
+      ],
       "version_name": "v1.0.2",
+      "depends_on": [
+        "9s6osm5g"
+      ]
+    },
+    {
+      "timestamp": "2026-09-18T20:20:28.840985903Z",
+      "game_versions": [
+        "26.3"
+      ],
+      "version_name": "v1.0.2-mc26.3-41-g8c2f588",
       "depends_on": [
         "9s6osm5g"
       ]
