@@ -7,7 +7,6 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.resources.Identifier;
-import org.lwjgl.glfw.GLFW;
 
 
 public class CutiesSimpleZoomClient implements ClientModInitializer {
@@ -52,8 +51,8 @@ public class CutiesSimpleZoomClient implements ClientModInitializer {
         );
         return new KeyMapping(
                 "key.cutiessimplezoom.zoom",
-                InputConstants.Type.KEYSYM,
-                GLFW.GLFW_KEY_C,
+                InputConstants.Type.KEYBOARD,
+                InputConstants.KEY_C,
                 category
         );
     }
