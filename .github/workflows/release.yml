@@ -63,7 +63,7 @@ jobs:
       -  name: Update Modman Manifest
          id: modman-update-manifest
          run: |
-           git clone --branch v1.9.0 --depth 1 https://codeberg.org/rubl/modman.git
+           git clone --branch v1.11.1 --depth 1 https://codeberg.org/rubl/modman.git
            cd modman
            cargo build --release
            chmod +x ./target/release/modman
@@ -75,7 +75,7 @@ jobs:
            rm -rf modman
            git pull origin master
            git switch master
-           modman manifest release $(git describe --tags) 26.2
+           modman manifest release $(git describe --tags) 26.3
            
            git config user.name "github-actions[bot]"
            git config user.email "github-actions[bot]@users.noreply.github.com"
