@@ -1,1 +1,1 @@
-update to 26.2
+fix missing translation keys
