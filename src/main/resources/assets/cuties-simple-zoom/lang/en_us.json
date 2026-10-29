@@ -13,5 +13,7 @@
     "option.cuties-simple-zoom.sensitivityScalingFactor.description": "",
     "option.cuties-simple-zoom.zoomSpeed": "Zoom Speed",
     "option.cuties-simple-zoom.zoomSpeed.description": "The speed of the Zoom animation.",
-    "option.cuties-simple-zoom.instantZoomLevel" : "Instant"
+    "option.cuties-simple-zoom.instantZoomLevel" : "Instant",
+    "key.category.minecraft.key.category.cutiessimplezoom.zoom" : "Cuties Simple Zoom",
+    "key.cutiessimplezoom.zoom" : "Zoom"
 }
